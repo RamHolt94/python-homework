@@ -9,7 +9,11 @@
 # 85°F, print "Hot day ahead!".
 temperature = int(input("Enter the temperature in Fahrenheit: "))
 
-# <Your code here>
+temperature = int(input("Enter the temperature in Fahrenheit: "))
+if temperature > 85:
+    print("Hot day ahead!")
+else:
+    print("Cold day ahead!")
 
 # ---------------------------------------------------------------------
 # Exercise 2: Grade Classifier
@@ -19,7 +23,11 @@ temperature = int(input("Enter the temperature in Fahrenheit: "))
 # Do not forget that the input() function returns a string value and
 # you need to convert it so you can use the value as a number.
 
-# <Your code here>
+students_score = input("Enter score: ")
+if students_score >= 50:
+    print("Pass")
+else:
+    print("Fail")
 
 # ---------------------------------------------------------------------
 # Exercise 3: Scholarship Eligibility
@@ -34,9 +42,14 @@ temperature = int(input("Enter the temperature in Fahrenheit: "))
 # The function int() converts the number to an integer, and the function
 # float() converts the number to a float.
 
-gpa = float(input("Enter your GPA: "))
 
-# <Your code here>
+gpa = float(input("Enter your GPA: "))
+if int(gpa) >= 3.5:
+    print("Congratulations, you're eligible for a scholarship!")
+elif int(gpa) == 3.49 and > 3.0:
+    print("You're on the waiting list.")
+else:
+   print("Keep up the good work.")
 
 # ---------------------------------------------------------------------
 # Exercise 4: Shopping Discount
@@ -47,7 +60,12 @@ gpa = float(input("Enter your GPA: "))
 original_price = float(input("Enter product original price: "))
 discount_percentage = float(input("Enter discount percentage: "))
 
-discounted_price = # calculate the discounted price here
+discounted_price = original_price * discount_percentage / 100 # calculate the discounted price here
+final_price = original_price - discounted_price
+if final_price > 50:
+    print("Great deal!")
+else:
+    print("Might want to wait for a better offer.")
 
 # <Your code here>
 
@@ -58,9 +76,16 @@ discounted_price = # calculate the discounted price here
 # are above 7, print "Let's watch both!". Otherwise,
 # print "Let's just pick one."
 
-# <Your code here>
+movie_one = float(input("Enter movie rating for movie 1: "))
+movie_two = float(input("Enter movie rating for movie 2: "))
+
+if movie_one > 7 and movie_two > 7:
+    print("Let's watch both!")
+else:
+    print("Let's just pick one.")
 
 # ---------------------------------------------------------------------
+
 # Exercise 6: Restaurant Recommendation
 # You're building a restaurant recommendation system. Write a program
 # that takes a person's mood (happy or sad) and hunger level
@@ -68,7 +93,23 @@ discounted_price = # calculate the discounted price here
 # a fancy restaurant. If they're sad and hungry, recommend comfort food.
 # For other cases, recommend a casual dining place.
 
-# <Your code here>
+# Inputs
+mood = input("What is your mood? ")
+hunger = input("What is your hunger? ")
+
+# Define conditions
+happy = 'happy'
+sad = 'sad'
+high_hunger = 'high'
+low_hunger = 'low'
+
+# Check recommendations
+if mood == happy and hunger == high_hunger:
+    print('I recommend a fancy restaurant.')
+elif mood == sad and hunger == low_hunger:
+    print('I recommend comfort food.')
+else:
+    print('I recommend a casual dining place.')
 
 # ---------------------------------------------------------------------
 # Exercise 7: Exercise 7: Tax Bracket Calculator
@@ -83,13 +124,22 @@ discounted_price = # calculate the discounted price here
 # Remember that a tax rate of 10% can be represented as 10/100 or 0.1
 
 # Print the calculated tax amount for the given income.
+#annual_income = float(input("Enter your annual income: "))
 annual_income = float(input("Enter your annual income: "))
-
-# <Your code here>
-
-# Print tax amount
-print(f"Your tax amount is ${tax_amount}")
-
+#tax_rate = .1,.2,.3
+tax_rate_1 = .1
+tax_rate_2 = .2
+tax_rate_3 = .3
+tax_amount_1 = annual_income * tax_rate_1
+tax_amount_2 = annual_income * tax_rate_2
+tax_amount_3 = annual_income * tax_rate_3
+if annual_income <= 40000:
+    print(f"your annual income tax ${tax_amount_1}")
+elif annual_income <= 100000:
+    print(f"your annual income tax is ${tax_amount_2}")
+else:
+    print(f"your annual is ${tax_amount_3}")
+#print(f"Your tax amount is ${tax_amount}")
 # ---------------------------------------------------------------------
 # Exercise 8: Ticket Pricing System
 # You're working on a ticket booking system for an amusement park.
@@ -101,6 +151,29 @@ print(f"Your tax amount is ${tax_amount}")
 # Print the calculated ticket price for the given age.
 
 # <Your code here>
+# Exercise 8: Ticket Pricing System
+# You're working on a ticket booking system for an amusement park.
+# Write a program that takes a person's age as input and determines
+# their ticket price based on the following rules:
+# - Children (ages 3 to 12): $10
+# - Adults (ages 13 to 64): $20
+# - Seniors (ages 65 and above): $15
+# Print the calculated ticket price for the given age.
+
+# <Your code here>
+person_age = int(input("What is your age? "))
+children_price = "Your ticket price is $10."
+adults_price = "Your ticket price is $20."
+seniors_price = "Your ticket price is $15."
+baby_price = "Your baby is free!"
+if person_age >= 65:
+    print(seniors_price)
+elif person_age >= 13:
+    print(adults_price)
+elif person_age >= 3:
+    print(children_price)
+else:
+    print(baby_price)
 
 # ---------------------------------------------------------------------
 # Exercise 9: Password Strength Checker
@@ -113,9 +186,19 @@ print(f"Your tax amount is ${tax_amount}")
 
 # You can use len() function to get the length of a given string.
 
-password = input("Enter your password: ")
+#password = input("Enter your password: ")
 
-# <Your code here>
+password = input("Enter your password: ")
+password_1 = "Weak password"
+password_2 = "Moderate password"
+password_3 = "Strong password"
+if len(password) > 12:
+    print(password_3)
+elif len(password) >= 8:
+    print(password_2)
+else:
+    print(password_1)
+
 
 # ---------------------------------------------------------------------
 # CHALLENGE (OPTIONAL): Course Enrollment Eligibility
