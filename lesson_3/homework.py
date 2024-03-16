@@ -10,7 +10,7 @@
 # Example Input: "Alice"
 # Example Output: "Hello, Alice!"
 name = input("Enter yor name: ")
-print(f"????")
+print(f"Hello, {name}" + '!')
 
 # ---------------------------------------------------------------------
 # Exercise 2: Greeting with User's Favorite Activity
@@ -23,8 +23,9 @@ print(f"????")
 # Name: Emily
 # Favorite Activity: hiking
 # Example Output: "Hello, Emily! Enjoy hiking!"
-
-
+name = input("Hello, ")
+activity = input("Enter activity")
+print(f"Hello, {name}!   Enjoy {activity}!")
 # ---------------------------------------------------------------------
 # Exercise 3: Membership Cards
 # You are designing a simple registration system for a club.
@@ -37,7 +38,9 @@ print(f"????")
 # Example Input:
 # Name: Emily
 # Example Output: "Welcome, Emily! Your name in uppercase is: EMILY!"
-
+name = input("Enter yor name: ")
+name_2 = str.upper(name)
+print('Welcome, {name}! Your name in uppercase is : {name_2}' .format(name=name, name_2=name_2))
 
 # ---------------------------------------------------------------------
 # Exercise 4: User Profile Creation
@@ -53,7 +56,15 @@ print(f"????")
 # Example Output:
 # Name: John Smith
 # Age: 28
+first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+age = input("Enter your age: ")
+name = str.title((first_name) + (last_name))
+greeting = str.upper("welcome!")
 
+print(f"""Name:{name}
+Age:{age}
+{greeting}""" .format(name=(name) , age=(age), greeting=(greeting)))
 
 # ---------------------------------------------------------------------
 # Exercise 5: Text message limits
@@ -64,6 +75,11 @@ print(f"????")
 # in the message, including spaces, and format the output using
 # an f-string. This character count will help users ensure their
 # messages fit within the allowed limit.
+message = input("Enter text message: ")
+if len(message) <= 27:
+    print(f"Your message length is {len(message)} and is within the characters limit")
+else:
+    print(f"Your message length is {len(message)} and is out of the character limit.")
 
 
 # ---------------------------------------------------------------------
@@ -75,8 +91,8 @@ print(f"????")
 # Example Input: "Hello, world!"
 # Example Output: "H*ll*, w*rld!"
 sentence = input("Enter a sentence: ")
-transformed_sentence = sentence.replace('a', '*')
-
+transformed_sentence = sentence.replace('a', '*').replace('e', '*').replace('i', '*').replace('o', '*').replace('u', '*')
+print(transformed_sentence)
 
 # ------------------------------# ---------------------------------------------------------------------
 # Exercise 7: Extracting Information
@@ -89,7 +105,11 @@ transformed_sentence = sentence.replace('a', '*')
 # Expected output:
 # Name: Lucy Smith
 # Age: 28
-
+data = "Lucy Smith:28"
+name = data[:10:1]
+age = data[11:14:1]
+print('Name: ' + name)
+print('Age: ' + age)
 
 # ---------------------------------------------------------------------
 # Exercise 8: Miles to Kilometers Conversion
@@ -104,7 +124,10 @@ transformed_sentence = sentence.replace('a', '*')
 # We are converting the input string to float:
 # Input: float("1.23")
 # Output: 1.23
+
 miles = float(input("Enter distance in miles: "))
+kilometers = miles * 1.6
+print(f'{miles} converts to {kilometers} kilometers')
 
 
 # ---------------------------------------------------------------------
@@ -118,6 +141,15 @@ miles = float(input("Enter distance in miles: "))
 # motivational message using an f-string that encourages the user
 # to stay consistent and reach their fitness goals. Display the
 # motivational message to the user.
+
+cardio = input('Enter the minutes spent on cardio: ')
+strength_training = input('Enter the minutes spent strength training: ')
+yoga = input('Enter the minutes spent on yoga: ')
+total_time = int(cardio) + int(strength_training) + int(yoga)
+if total_time >= 60:
+    print(f'Your total time is {total_time} minutes great job today!')
+else:
+    print(f'Your total time is {total_time} minutes, not bad, rest up and go harder tomorrow!')
 
 
 # ---------------------------------------------------------------------
