@@ -14,8 +14,12 @@
 # Hint: Start with sorting the list
 
 arr = [5, 2, 9, 1, 5, 6]
-# Your code here
-
+lowest_numbers = [2, 1]
+result = ""
+for number in arr:
+    if number in lowest_numbers:
+        result += str(number)
+print(result)
 # ---------------------------------------------------------------------
 
 # Challenge 2
@@ -31,8 +35,13 @@ arr = [5, 2, 9, 1, 5, 6]
 # exclude all spaces.
 
 file_name = "My Summer Photos 2023"
-# Your code here
+spaces = " "
+result = ""
 
+for space in file_name:
+    if space not in spaces:
+        result += space
+print(result)
 # ---------------------------------------------------------------------
 
 # Challenge 3
@@ -45,17 +54,18 @@ file_name = "My Summer Photos 2023"
 # Example: number = 5. Result = 1 + 2 + 3 + 4 + 5 = 15
 
 # Initialize 'number' variable to 5. This is the number up to which we will calculate the sum.
-n = 5
+def digit_sum(num):
+    return sum(int(digit) for digit in str(num))
+number = 5
 
 # Initialize 'result' variable to 0. This variable will hold the sum.
-
+result = 0
 # Iterate through the range starting from 1 up to 'number + 1'.
-
+for i in range(1, number +1):
 # Add the current value of 'i' to 'result'
-
+  result += digit_sum(i)
 # Print the sum of integers from 1 to 'number'
-
-
+print(result)
 # ---------------------------------------------------------------------
 
 # Challenge 4
@@ -75,7 +85,13 @@ n = 5
 # Use a for loop to iterate over every letter and conditional statements to check the condition
 # Use the count() method (think how it can help you solve this problem!)
 
-
+word = input("What is your word: ")
+is_isogram = True
+for letter in word:
+    if word.count(letter) > 1:
+        is_isogram = False
+        break
+print(is_isogram)
 # ---------------------------------------------------------------------
 
 # Challenge 5
@@ -97,13 +113,15 @@ n = 5
 string = "312"
 
 # Initialize an empty string called 'result' to store the result
-
+result = ""
 # Loop through each character in the string
-
+for char in string:
+    current_num = int(char)
 # Inside the loop, turn the character into a number using int()
 # and store it as a current_num variable
 
 # Multiply the character by its number value
 # and add the repeated character to 'result'
-
+    result += char * current_num
 # Print the final result
+print(result)
