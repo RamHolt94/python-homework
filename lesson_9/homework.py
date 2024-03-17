@@ -14,12 +14,14 @@
 # Basic Function with Default Values
 # Define a basic function that prints a greeting for a name, but if none is given, use stranger instead of the name,
 # so it behaves like this:
-
+def greeting(name="stranger"):
+    print("Hello,", name, "!")
 # Prints: Hello, stranger!
-# greeting()
-
+greeting()
 # Prints: Hello, Tom!
-# greeting('Tom')
+# def greeting(name):
+#     print(f"Hello,", name)
+greeting('Tom')
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -28,7 +30,11 @@
 
 # Prints: The sum of 1 + 2 = 3
 # add(1, 2)
-
+def my_function(first, second):
+    total =sum((first, second))
+    print(f"The sum of", first, "+", second, "=", total)
+my_function(1, 2)
+my_function(1,0)
 # Prints (default values might be useful): The sum of 1 + 0 = 1
 # add(1)
 
@@ -39,11 +45,16 @@
 # the function call in such a way that first_name and last_name can be given in any order and the printed full_name
 # would still be correct.
 
+def full_name(first_name, last_name):
+    print(first_name + last_name)
+full_name(first_name= "Jason", last_name= " Bourne")
+
 # Prints: Nelson Mandela
 # full_name("Nelson", "Mandela")
 
 # Is there anything you can add to the line below, so the function also prints "Nelson Mandela"?
 # full_name("Mandela", "Nelson")
+full_name(last_name=" Mandela", first_name="Nelson")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -53,6 +64,19 @@
 # list using a for loop.
 
 # Tip: Validator functions return True / False which we can use in conditionals to do things like print a message.
+def is_longer_than_8(word):
+    return len(word) > 8
+
+def word_length(length):
+    for word in length:
+        if is_longer_than_8(word):
+            print(f"{word} is longer than 8 characters.")
+        else:
+            print(f"{word} is not longer than 8 characters.")
+
+box_of_names = ["Theodore", "RamassesH"]
+
+word_length(box_of_names)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -65,6 +89,16 @@
 # You print Fizz for multiples of 3, Buzz for multiples of 5, and FizzBuzz for multiples of both 3 and 5.
 
 # Now, your task is to take your existing FizzBuzz code and wrap it into a function called fizzbuzz.
+def fizzbuzz(number):
+
+    if number % 5 == 0 and number % 3 == 0:
+        return"fizzbuzz"
+    elif number % 3 == 0:
+        return "fizz"
+    elif number % 5 == 0:
+        return "buzz"
+    else:
+        return number
 
 # Requirements:
 # - Create a function named fizzbuzz that takes a single argument, number.
@@ -74,7 +108,7 @@
 # - Otherwise, the function should return the number.
 
 # Call the function here
-
+print(fizzbuzz(16))
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Anagram
@@ -85,7 +119,16 @@
 # What You Need to Check
 # - The two strings must have the same length.
 # - The sorted form of the first string must be equal to the sorted form of the second string.
+def is_anagram(test_str1, test_str2):
+    if len(test_str1) == len(test_str2):
+        if sorted(test_str1) == sorted(test_str2):
+            return "Matched length and an anagram"
+        else:
+            return "Matched but not an anagram"
+    else:
+        return "Length doesn't match"
 
+print(is_anagram(test_str1='abcde', test_str2='edcba' ))
 # Approach
 # - Create a function that takes two strings as arguments.
 # - Check if the lengths are equal. If they're NOT equal, return False (anagrams are always same length).
@@ -107,13 +150,17 @@ test_str2 = 'edcba'
 # - Check if number > result
 #   - If it is, update result with the new greater number.
 # - return result
-
-# Define your function here
+def find_max(numbers):
+    result = numbers[0]
+    for dig in numbers:
+        if dig > result:
+            result = dig
+    return result
 
 # Test the function with a sample list of numbers.
-
+numbers_list = [1, 2, 3, 4, 5, 6, 7]
 # Output should be the maximum number in the list.
-
+print(find_max(numbers_list))
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Even/Odd Checker Function
@@ -126,5 +173,10 @@ test_str2 = 'edcba'
 # - An odd number leaves a remainder of 1 when divided by 2.
 
 # Define a function is_even_odd(number) here
-
+def is_even_odd(number):
+    if number % 2 == 0:
+        return "Even Number"
+    else:
+        return "Odd number"
+print(is_even_odd(12))
 # Test the function calling it using a variety of numbers like: 1, 10, 5.5, 9
