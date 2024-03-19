@@ -7,6 +7,15 @@
 ################################################################################
 
 # Challenge 1
+# Homework Lesson 10 - Workshop - Homework
+
+# READ CAREFULLY THE EXERCISE DESCRIPTION AND SOLVE IT RIGHT AFTER IT
+
+################################################################################
+### When solving coding challenges, think about the time complexity (Big O). ###
+################################################################################
+
+# Challenge 1
 # Multiplication of a three-digit number
 #
 # A program gets a three-digit number and has to multiply all its digits.
@@ -18,8 +27,13 @@
 
 def multiplication_of_three(number):
 # Your code here
-
-
+    result = 1
+    while number > 0:
+        last_digit = number % 10
+        result *= last_digit
+        number //= 10
+    return result
+print(multiplication_of_three(349))
 # ---------------------------------------------------------------------
 
 # Challenge 2
@@ -41,7 +55,15 @@ def sum_even_and_product_odd(arr):
     sum_even = 0
     product_odd = 1
     # Your code here
+    for num in arr:
+        if num % 2 == 0:
+            sum_even += num
+        else:
+            product_odd *= num
+    return[sum_even, product_odd]
 
+array_of_int = [1, 2, 3, 4]
+print(sum_even_and_product_odd(array_of_int))
 
 # ---------------------------------------------------------------------
 
@@ -57,7 +79,14 @@ def sum_even_and_product_odd(arr):
 
 def invert_list(arr):
 # Your code here
+    inverted = []
+    for num in arr:
+        inverted.append(-num)
+    return [inverted]
 
+
+list_of_numbers = [1, 5, -2, 4]
+print(invert_list(list_of_numbers))
 
 # ---------------------------------------------------------------------
 
@@ -78,6 +107,18 @@ def max_diff(arr):
     if len(arr) == 0:
         return 0
 
+    lowest_num = arr[0]
+    highest_num = arr[0]
+    for num in arr:
+        if num < lowest_num:
+            lowest_num = num
+        if num > highest_num:
+            highest_num = num
+    difference = highest_num - lowest_num
+    return difference
+
+largest_and_smallest = [3, -5, 7, 2]
+print(max_diff(largest_and_smallest))
 
 # If the list is not empty,
 # proceed with the rest of the code.
@@ -94,9 +135,9 @@ def max_diff(arr):
 # array that fall within the range [min, max], inclusive.
 #
 # Example:
-# arr = [3, 2, 1, 4, 10, 8, 7, 6, 9, 5]
-# min_val = 3
-# max_val = 7
+arr = [3, 2, 1, 4, 10, 8, 7, 6, 9, 5]
+min_val = 3
+max_val = 7
 #
 # Output: 25 (3 + 4 + 5 + 6 + 7)
 #
@@ -104,4 +145,10 @@ def max_diff(arr):
 
 def sum_between_range(arr, min_val, max_val):
 # Your code here
+    total_sum = 0
+    for num in arr:
+        if min_val <= num <= max_val:
+            total_sum += num
+    return total_sum
+print(sum_between_range(arr, min_val, max_val))
 
